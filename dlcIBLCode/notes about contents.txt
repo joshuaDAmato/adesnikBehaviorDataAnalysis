@@ -1,0 +1,5 @@
+files listed as being helpful https://github.com/int-brain-lab/iblvideo#readme
+overview_plot_dlc.py
+DLC_labeled_video.py
+
+the files in this folder are all from the DLC directory in the iblapps repo
