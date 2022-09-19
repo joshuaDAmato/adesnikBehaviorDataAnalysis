@@ -9,7 +9,7 @@ get_port_events
 - Looks in *trial[‘behavior’][‘Events timestamps’]*
 - Parameters: trial
 - Return data: sorted list of event timestamps
-	- Return type: list 
+	- Return type: list
 - How will/could/is this help(ing) us?
 
 
@@ -91,6 +91,8 @@ load_data
 - Return data:
 	- List of len ntrials, where each trial is a dictionary
 	- Return type: list of dicts
+	- returns a list with each item being a dictionary corresponding to the trial
+	- See separate md file titles 'raw_data_loaders outputs'
 - How will/could/is this help(ing) us?
 
 
@@ -112,8 +114,10 @@ load_encoder_events
 		2. stim_on
 		3. closed_loop
 		4. freeze_error / freeze_correct
-- Return data: dataframe with three columns and (ntrials * 3) lines
+- Return data:
+	- dataframe with three columns and (ntrials * 3) lines
 	- Return type: pd.DataFrame
+	- each event has an index, relative timestam, and sm_ev (?)
 - How will/could/is this help(ing) us?
 
 
@@ -125,8 +129,10 @@ load_encoder_positions
 	- 0 corresponds to trial stim init position
 	- Positive numbers corresponds to rightward mvmt and vice versa
 - Raw datafile columns are: position, RE timestamp, RE position, Bonsai timestamp
-- Return data: df with 3 columns and N positions
+- Return data:
+	- df with 3 columns and N positions
 	- Return type: pd.DataFrame
+	- columns for index, relative timestamp, and relative position
 - How will/could/is this help(ing) us?
 
 
@@ -135,6 +141,17 @@ load_encoder_trial_info
 - Parameters: session_path
 - Return data: dataframe w/ 9 columns and ntrial rows
 	- Return type: pd.DataFrame
+	- columns include:
+		- index – starts at 0
+		- trial_num – starts at 1
+		- stim_pos_init – ±1
+		- stim_contrast
+		- stim_freq
+		- stim_angle – ±0.785398
+		- stim_gain
+		- stim_sigma
+		- stim_phase
+		– bns_ts – bns timestamp (not sure what tns is)
 - How will/could/is this help(ing) us?
 
 
@@ -189,9 +206,3 @@ trial_times_to_times
 - Return data:
 	- Return type:
 - How will/could/is this help(ing) us?
-
-
-# Data
-- raw_trial
-	- dict
-	- raw trial data
